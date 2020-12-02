@@ -1,5 +1,5 @@
 from typing import Iterable
-from Day2.Day2PasswordObject import PasswordObject
+from Day2PasswordObject import PasswordObject
 
 with open("Day2Input.txt") as file:
     read_data = file.read()

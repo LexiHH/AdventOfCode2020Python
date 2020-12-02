@@ -22,8 +22,9 @@ class PasswordObject:
 
     @classmethod
     def make_object_from_string(cls, string):
-        min_number = re.search(".*?(?=-)", string).group(0)
-        max_number = re.search("(?<=-)(.*?)(?=\ )", string).group(0)
-        letter = re.search("(?<=\ )(.*?)(?=:)", string).group(0)
-        password = re.search("(?<=:\ )(.*)", string).group(0)
+        parts = re.findall("([0-9]+)(?=-)|(?<=-)(.*?)(?=\ )|(?<=\ )(.*?)(?=:)|(?<=:\ )(.*)", string)
+        min_number = parts[0][0]
+        max_number = parts[1][1]
+        letter = parts[2][2]
+        password = parts[3][3]
         return cls(min_number, max_number, letter, password)
