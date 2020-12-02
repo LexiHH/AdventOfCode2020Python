@@ -1051,13 +1051,18 @@ def analyse_passwords_day_one(entire_strings):
 def analyse_passwords_day_two(entire_strings):
     correct_passwords_count = 0
     for i in range(0, len(entire_strings)):
-        number_of_matches = len(re.findall(required_letters[i], passwords[i]))
-        if int(min_numbers[i]) <= number_of_matches <= int(max_numbers[i]):
+        min_number = int(min_numbers[i]) - 1
+        max_number = int(max_numbers[i]) - 1
+        required_letter = required_letters[i]
+        password = passwords[i]
+        if (password[min_number] == required_letter and password[max_number] != required_letter) or (password[max_number] == required_letter and password[min_number] != required_letter):
             correct_passwords_count += 1
     print(correct_passwords_count)
 
 
 create_sub_strings(string_formatted)
 analyse_passwords_day_one(string_formatted)
+analyse_passwords_day_two(string_formatted)
+
 
 
