@@ -20,9 +20,9 @@ def count_trees(string_list, number_along, number_down):
 def calc_run_multiplication(string_list):
     total = 1
     instructions = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
-    for instruction in instructions:
-        trees = count_trees(string_list, instruction[0], instruction[1])
-        total = total * trees
+    for number_along, number_down in instructions:
+        trees = count_trees(string_list, number_along, number_down)
+        total *= trees
     return total
 
 
