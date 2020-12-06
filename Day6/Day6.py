@@ -14,18 +14,18 @@ def format_questionnaires(input_string):
 
 
 def sum_questionnaires_anyone(groups):
-    sum = 0
+    sum_yes = 0
     for group in groups:
         group_unique_questions = set()
         for person in group:
             for question in person:
                 group_unique_questions.add(question)
-        sum += len(group_unique_questions)
-    print(sum)
+        sum_yes += len(group_unique_questions)
+    print(sum_yes)
 
 
 def sum_questionnaires_everyone(groups):
-    sum = 0
+    sum_yes = 0
     for group in groups:
         number_of_people = len(group)
         question_count = Counter()
@@ -34,10 +34,8 @@ def sum_questionnaires_everyone(groups):
                 question_count.update(question)
         for value in question_count.values():
             if value == number_of_people:
-                sum += 1
-    return sum
-
-
+                sum_yes += 1
+    return sum_yes
 
 
 questionnaires = format_questionnaires(read_data)
