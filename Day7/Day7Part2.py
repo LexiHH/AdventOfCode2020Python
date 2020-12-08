@@ -22,10 +22,7 @@ def sum_in_bag(bag_mapping: Dict, colour: str):
     child_bags = bag_mapping[colour]
     for child_colour, number_of_child_colour in child_bags.items():
         number_bags_in_child = sum_in_bag(bag_mapping, child_colour)
-        if number_bags_in_child == 0:
-            number_children += number_of_child_colour
-        else:
-            number_children += number_of_child_colour + (number_of_child_colour * number_bags_in_child)
+        number_children += number_of_child_colour + (number_of_child_colour * number_bags_in_child)
     print(colour, number_children)
     return number_children
 
