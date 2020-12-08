@@ -20,12 +20,14 @@ def make_dictionary(input_string):
 def execute_instructions(instructions):
     instruction = 1
     instruction_set = set()
+    count_instructions = 0
     accelerate = 0
     while instruction < len(instructions):
         instruction_type, instruction_number = instructions.get(instruction)
         if instruction in instruction_set:
-            return accelerate
+            return accelerate, count_instructions
         else:
+            count_instructions += 1
             instruction_set.add(instruction)
             if instruction_type == 'nop':
                 instruction += 1
