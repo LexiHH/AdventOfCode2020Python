@@ -2,7 +2,7 @@ with open("Day9Input.txt") as file:
     read_data = file.read()
 
 input_list = read_data.split('\n')
-input_numbers_list = test_list = [int(i) for i in input_list]
+input_numbers_list = [int(i) for i in input_list]
 
 
 def find_invalid_number(input_list, preamble, numbers_considered):
